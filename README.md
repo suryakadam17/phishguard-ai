@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="screenshots/banner.png" alt="PhishGuard AI Banner" width="100%">
+</p>
 # 🛡️ PhishGuard AI
 
 An AI-powered phishing email analysis platform built with **Python**, **Flask**, and multiple threat intelligence sources.
