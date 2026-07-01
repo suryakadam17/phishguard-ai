@@ -1,0 +1,15 @@
+Return-Path: <attacker@gmail.com>
+
+From: Amazon <support@amazon-security.com>
+
+Subject: Your Amazon Account Has Been Locked
+
+Received: from 185.220.101.15
+
+Authentication-Results:
+
+spf=fail
+
+dkim=pass
+
+dmarc=fail

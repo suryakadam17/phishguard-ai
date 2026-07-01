@@ -1,0 +1,39 @@
+Delivered-To: suryajaykadam2005@gmail.com
+Received: by 2002:a05:6130:188a:b0:963:a361:480a with SMTP id fe10csp2517306uab; Fri, 26 Jun 2026 15:37:42 -0700 (PDT)
+X-Received: by 2002:a17:907:1c15:b0:c12:34f3:9a36 with SMTP id a640c23a62f3a-c1234f39d09mr103610966b.57.1782513461844; Fri, 26 Jun 2026 15:37:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1782513461; cv=pass; d=google.com; s=arc-20260327; b=oTf7ACXFeuHH0JmwouCdOL30m8VyuR9RYwLrloAAbeK/NSVYMZwI0yT1rG3TkAV9OJ 79B1MKwkLgPcWi07VbxMn0FNwgyEE8CGaBvX6McmJC3ad27P/yVe65ZZlPPu/Xw/9OzF osdIrCROpnfBuWi72h4oDzpjdWPZSafs0J+8wVyfXxPbNoB4knhpoX3fFpqEeNUp6TVX Y3QreSa9eX5QejyjAjFtRlfxSIr18B5It9KuDi6lQmn2ZPLkvMcQcRzKbm+dodA/Dsnw ZUIJmHNppSCv0Y23t7aqVDtNDpPjlZw++HgS2SCGpZTyCihzOjSzMPLbXroEFlhb3XL2 +VXA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327; h=to:subject:message-id:date:from:mime-version:dkim-signature; bh=tf/JTdaSbMgop5L4gAvJUFRcwhXb6ANpvh/oOuzChdY=; fh=zOHd5/twH700qjBpdqECqYU+1NFxGkw/BEmgSclDLxY=; b=UCPNzkvI5qZ7+kbHTITB2RlOFKduzsMXeD0OQS4QkrdoGQ1z1IQ+T91Td5L9/qyakq 0sllt8M60DCF+uiswGoci/TbUCpNB+THA8wukRbPmPyxjMmh5YHNrvrFBfg2cVWT3Inf cLGEBxjJXr+peLcY/RV6O16pKubEjyHOmw696EpDPAkJcjxhEuAt1e5I7icsBrYNvFjd QtpLc+gII/pIb+vWdEat5o0uBIWtE8nre/LM69SZZLtncMOUb+7UrOPl/x4UsuqFMZpG UdHxoQgCsGcPlSvi/mPH1P3qpO5Auqvz7uXtrfRw6SUjDDZASm/Qvt+JF1zKgqAbRodt Pvyg==; dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com; dkim=pass header.i=@gmail.com header.s=20251104 header.b=D4DxRc+5; arc=pass (i=1); spf=pass (google.com: domain of dneprovv294@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=dneprovv294@gmail.com; dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com; dara=pass header.i=@gmail.com
+Return-Path: <dneprovv294@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41]) by mx.google.com with SMTPS id a640c23a62f3a-c0c61302881sor512397966b.22.2026.06.26.15.37.41 for <suryajaykadam2005@gmail.com> (Google Transport Security); Fri, 26 Jun 2026 15:37:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dneprovv294@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com; dkim=pass header.i=@gmail.com header.s=20251104 header.b=D4DxRc+5; arc=pass (i=1); spf=pass (google.com: domain of dneprovv294@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=dneprovv294@gmail.com; dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com; dara=pass header.i=@gmail.com
+ARC-Seal: i=1; a=rsa-sha256; t=1782513461; cv=none; d=google.com; s=arc-20260327; b=ODL8tXzQvE/sc7g58ILb/lcYd+sUzmMLBFjNsLlYje+eRRXbdHgSsVib4V1/8XEX3B rJ9rShhMx6gpgLhq2FWwfQTQmIiqBJWMtFd1xp5w1qJ2rwDkIjCJh7CqYLx0xW53i5an a36Y2ZFr/dx8a6ZZ/VmdywAIFmUtR29eRL33E2iVOVHZ77oDQxrBk607En8xDXa9w/JX n12tu6otXgq7mrtOXwGr5pZ25dT8x3W9Uv/m2jCzoDdx/ufoj0oFcyJYUidLjSuc9Abm btq/QReh7BJbwNwdQUJNZpeMZ2/yXreFvtLrmipwVNPt7vnnxm6MqmKe3b/nQh9U2b/K ynjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327; h=to:subject:message-id:date:from:mime-version:dkim-signature; bh=tf/JTdaSbMgop5L4gAvJUFRcwhXb6ANpvh/oOuzChdY=; fh=zOHd5/twH700qjBpdqECqYU+1NFxGkw/BEmgSclDLxY=; b=ha8EHMnnrNd9gqyhrjIOPYvrqbjw3z5U5vGyak4s0QKl3KuNj9SZLN/gSinQwXvZBC NvOgYtexRquZflPjsd7TjGR9GJ9DpBOd+psBn6QdpRwk5HTfATGMe4VgSJHkdBqcx5CC QLQA3TWf9uGc86jG7mWkfSnPqF82/cMxSsEkMrU7523S5R7ScxLhKOsi+e7FWSw1TefO USRHf3rQcITVrWlqxIet3FfcZmR+XP47tn3/oDdWkKg1c9X9myKGw8+J6gh8tIazRsBZ 8zi8FcPtWLU1yWWdYJTj174IUIfd2hg3VhF5rZuTOrnoGpYymtWrAPKV/tH2qIM7g6GA qjdQ==; dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20251104; t=1782513461; x=1783118261; dara=google.com; h=to:subject:message-id:date:from:mime-version:from:to:cc:subject :date:message-id:reply-to; bh=tf/JTdaSbMgop5L4gAvJUFRcwhXb6ANpvh/oOuzChdY=; b=D4DxRc+5o5HyQ6rzkNcFhB65T79+H2l8Y39zlUKlEsiMCaIA0asKTItixXPRvlUWqR FmdZtf5DQPtV15DGs+VUNz2twHqoSkKUWLV+bA9P1EiSShu8ol04b5qIAXZXmHAC+FKw gZg/25rtiikS0S1XW9FqcZTW2mtg6EQs9AW0dIVtZ1ewCRoAakNKCHeiqlkwnLawrVj5 03RoPkZ5X+p7aPQnk3hDTlvUJcDSHGFt9Y3v6soHoZgBCejNXSU+Flp+ZuesBcTQljnm ILUDMeuIqWF8ajjf1GUS6S4W2WT2kNiEQQO/bvfJLLgSCE70I0BmgfG6TL2tygPDTLJD +iwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1e100.net; s=20251104; t=1782513461; x=1783118261; h=to:subject:message-id:date:from:mime-version:x-gm-gg :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to; bh=tf/JTdaSbMgop5L4gAvJUFRcwhXb6ANpvh/oOuzChdY=; b=HnubUgRU/gWQDfMtfpc1dcEyUQabhKPZhnP2op0CJV1JpN0OW/FotOyMGkMiP7FRiW dv/foHLi0MNT3xXrdYFqni5LQ6Q2GMDexgSmZpYLs4DUkxO787w+ZCn/p4D0iT0qAzE1 jjUejnqKV4g++8IRM6Y8nm8uwhhjAtfwQj81NM/rl/UdcP7Ag3EUO3aKpH4EMklbM6jC lPzDbMm9lHHMr7vekm8JsTppX7NPfo02+SFwRlJpSKVWIcatDZAGCvrpBfNPAu7wRLWS toF3C+KgTOUcdzC7nHZnLFRhGOSNmuXWcBDlJRzoG5psqVgtrEhGPmsinyg+aTC8QWDz d8wg==
+X-Gm-Message-State: AOJu0YyNOzGLRlxnqOQCBJ75oKlqQFfihpxx6eOIOQHfY0H/I/8appLm cHe9dsQgGZRMfz2tg1dxp+Cd2S+ifVavmd1Jn+FSkov9RfzcgnLplLATf5fjohlD96MAyIQFcst OoUKkr0kU7jABteYSUDZsf98ASymJthRTR6pp
+X-Gm-Gg: AfdE7cnNUtc67OwazVEa3Dr7X+NeO5umBaGdYHv00N1YBKXUQsk8NHfvGBRS9d3SqYy vQ/9UST6p3h9sV9yy3BlBpbXtcGFxtfwnRxghR9siQy9jnWU+N1Sf+dhxgdD5ggLHGDG8CbYz8H UQngkxZEVDccJgAtqcRlEi3AWAQWcBbghkqT4BUR9gOhLzIbBuLYkLxijppRDmgLJOLCmEBCro3 YWSW2F3EX5/KW546AeOWmbhMlaIm3yWefOuLviSbRnfyjPB77DLQxw4DU9JqTqtC2Jbv0YP2BtT uQ==
+X-Received: by 2002:a17:907:d8a:b0:c12:1c2a:944a with SMTP id a640c23a62f3a-c121c2a9537mr344371766b.14.1782513461116; Fri, 26 Jun 2026 15:37:41 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a05:7412:37c3:b0:1dd:5255:4655 with HTTP; Fri, 26 Jun 2026 15:37:40 -0700 (PDT)
+From: Mary <dneprovv294@gmail.com>
+Date: Sat, 27 Jun 2026 01:37:40 +0300
+X-Gm-Features: AVVi8CfHaIREqBL83VoTduvNhUEigWln3NhZ2pNM90kgPl0eVlaTDBthzpYqMJE
+Message-ID: <CAMx6RuFMUYwgL9ibD9RzM0O7m_G-ruaF+ZqCxGy610KoRVBQGQ@mail.gmail.com>
+Subject: Re: Surya
+To: suryajaykadam2005@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000a8443806552fc121"
+
+--000000000000a8443806552fc121
+Content-Type: text/plain; charset="UTF-8"
+
+It's Mary! Sup Surya
+
+--000000000000a8443806552fc121
+Content-Type: text/html; charset="UTF-8"
+
+It&#39;s Mary! Sup Surya
+
+--000000000000a8443806552fc121--

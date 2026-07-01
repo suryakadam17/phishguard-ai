@@ -1,0 +1,19 @@
+Delivered-To: user@example.com
+Received: from mail-oi1-f179.google.com (mail-oi1-f179.google.com [209.85.167.179])
+        by mx.example.com with ESMTPS id A123456789
+        for <user@example.com>;
+        Sat, 27 Jun 2026 10:25:12 +0000
+Authentication-Results: mx.example.com;
+       spf=pass smtp.mailfrom=google.com;
+       dkim=pass header.d=google.com;
+       dmarc=pass
+Return-Path: <notifications@google.com>
+Received-SPF: pass
+From: Google Security <notifications@google.com>
+Reply-To: notifications@google.com
+To: user@example.com
+Subject: Security Alert
+Date: Sat, 27 Jun 2026 10:25:10 +0000
+Message-ID: <1234567890@mail.google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8

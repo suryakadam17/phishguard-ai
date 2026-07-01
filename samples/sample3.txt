@@ -1,0 +1,10 @@
+from:	plac...@acciojob-team.org <placement@acciojob-team.org>
+reply-to:	
+contactus@acciojob.com
+to:	
+suryajaykadam2005@gmail.com
+date:	Jun 10, 2026, 5:34 PM
+subject:	may placement highlights
+mailed-by:	acciojob-team.org
+signed-by:	acciojob-team.org
+security:	 Standard encryption (TLS) Learn more

@@ -1,0 +1,31 @@
+Return-Path: <attacker@evil-domain.com>
+
+Received: from mail.evil-domain.com (185.199.110.153)
+    by mx.google.com with ESMTPS id 123456789
+    for <victim@gmail.com>;
+    Mon, 29 Jun 2026 10:15:20 +0000
+
+Authentication-Results: mx.google.com;
+       spf=fail (google.com: domain of attacker@evil-domain.com does not designate 185.199.110.153 as permitted sender)
+       dkim=fail header.i=@paypal.com
+       dmarc=fail (p=REJECT sp=REJECT dis=NONE) header.from=paypal.com
+
+From: "PayPal Security Team" <support@paypal.com>
+
+Reply-To: attacker@evil-domain.com
+
+Subject: URGENT: Verify Your PayPal Account Immediately
+
+Message-ID: <123456789@mail.evil-domain.com>
+
+Date: Mon, 29 Jun 2026 10:15:18 +0000
+
+MIME-Version: 1.0
+
+Content-Type: text/plain; charset=UTF-8
+
+Please verify your account immediately.
+
+https://paypal-login-check.com/login
+
+https://bit.ly/3FakeLink

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PhishGuard AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🛡️ <span>PhishGuard AI</span>
+    </div>
+
+</header>
+
+<main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <h1>Intelligent Phishing Email Analysis</h1>
+
+        <p>
+            Upload an email header and analyze phishing indicators,
+            SPF, DKIM, DMARC and sender reputation.
+        </p>
+
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+
+            <label for="email_file" class="upload-box">
+
+                <div class="upload-icon">📂</div>
+
+                <h2>Drag & Drop Email Header</h2>
+
+                <p>or Click to Browse</p>
+
+            </label>
+
+            <input
+                type="file"
+                id="email_file"
+                name="email_file"
+                hidden>
+
+            <p id="file_name">No file selected</p>
+
+            <button class="analyze-btn">
+                Analyze Email
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- Dashboard -->
+
+    <section class="dashboard">
+
+        <!-- Threat Score -->
+        <div class="card threat-card">
+
+            <h3>🛡 Threat Score</h3>
+
+            <div class="score-circle">
+
+                {% if results %}
+
+                    {{ results.ThreatScore }}
+
+                {% else %}
+
+                    --
+
+                {% endif %}
+
+            </div>
+
+            <h2>
+
+                {% if results %}
+
+                    {{ results.Risk }} Risk
+
+                {% else %}
+
+                    Waiting...
+
+                {% endif %}
+
+            </h2>
+
+        </div>
+
+       <div class="card">
+
+    <h3>🎭 Email Spoofing</h3>
+
+    {% if results %}
+
+        <h2>{{ results.SpoofingRisk }}</h2>
+
+        {% if results.SpoofingReasons %}
+
+            <ul>
+
+            {% for reason in results.SpoofingReasons %}
+
+                <li>{{ reason }}</li>
+
+            {% endfor %}
+
+            </ul>
+
+        {% else %}
+
+            <p>No spoofing indicators detected.</p>
+
+        {% endif %}
+
+    {% else %}
+
+        <p>Waiting...</p>
+
+    {% endif %}
+
+</div>
+
+        <!-- Sender -->
+
+        <div class="card">
+
+            <h3>👤 Sender</h3>
+
+            <p>
+
+            {% if results %}
+
+                {{ results.From }}
+
+            {% else %}
+
+                Waiting...
+
+            {% endif %}
+
+            </p>
+
+        </div>
+
+      <!-- DOMAIN CARD -->
+
+<div class="card">
+
+    <h3>🌐 Domain</h3>
+
+    <p>
+
+{% if results %}
+
+{{ results.Domain }}
+
+{% else %}
+
+Waiting...
+
+{% endif %}
+
+    </p>
+
+</div>
+
+<div class="card">
+
+    <h3>🏢 Registrar</h3>
+
+    <p>
+
+    {% if results %}
+
+    {{ results.Registrar }}
+
+    {% else %}
+
+    Waiting...
+
+    {% endif %}
+
+    </p>
+
+</div>
+
+<div class="card">
+
+    <h3>📅 Created</h3>
+
+    <p>
+
+    {% if results %}
+
+    {{ results.CreationDate }}
+
+    {% else %}
+
+    Waiting...
+
+    {% endif %}
+
+    </p>
+
+</div>
+
+<div class="card">
+
+    <h3>⏰ Expires</h3>
+
+    <p>
+
+    {% if results %}
+
+    {{ results.ExpirationDate }}
+
+    {% else %}
+
+    Waiting...
+
+    {% endif %}
+
+    </p>
+
+</div>
+
+        <!-- SPF -->
+
+        <div class="card">
+
+            <h3>🌐 SPF</h3>
+
+            <p>
+
+            {% if results %}
+
+                {{ results.SPF }}
+
+            {% else %}
+
+                Waiting...
+
+            {% endif %}
+
+            </p>
+
+        </div>
+
+        <!-- DKIM -->
+
+        <div class="card">
+
+            <h3>🔑 DKIM</h3>
+
+            <p>
+
+            {% if results %}
+
+                {{ results.DKIM }}
+
+            {% else %}
+
+                Waiting...
+
+            {% endif %}
+
+            </p>
+
+        </div>
+
+        <!-- DMARC -->
+
+        <div class="card">
+
+            <h3>📄 DMARC</h3>
+
+            <p>
+
+            {% if results %}
+
+                {{ results.DMARC }}
+
+            {% else %}
+
+                Waiting...
+
+            {% endif %}
+
+            </p>
+
+        </div>
+
+<div class="card">
+
+    <h3>🌍 Sender IP</h3>
+
+    <p>
+
+{% if results %}
+
+{{ results.SenderIP }}
+
+{% else %}
+
+Waiting...
+
+{% endif %}
+
+    </p>
+
+</div>
+
+<div class="card">
+
+<h3>🌍 Country</h3>
+
+<p>
+
+{% if results %}
+
+{{ results.Country }}
+
+{% else %}
+
+Waiting...
+
+{% endif %}
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🏙 City</h3>
+
+<p>
+
+{% if results %}
+
+{{ results.City }}
+
+{% else %}
+
+Waiting...
+
+{% endif %}
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>📡 ISP</h3>
+
+<p>
+
+{% if results %}
+
+{{ results.ISP }}
+
+{% else %}
+
+Waiting...
+
+{% endif %}
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🏢 ASN</h3>
+
+<p>
+
+{% if results %}
+
+{{ results.Organization }}
+
+{% else %}
+
+Waiting...
+
+{% endif %}
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🛡 VirusTotal</h3>
+
+<p>
+
+{% if results %}
+
+{{ results.VT_Summary }}
+
+{% else %}
+
+Waiting...
+
+{% endif %}
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>☠ Malicious</h3>
+
+<p>
+
+{% if results %}
+
+{{ results.VT_Malicious }}
+
+{% else %}
+
+0
+
+{% endif %}
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>⚠ Suspicious</h3>
+
+<p>
+
+{% if results %}
+
+{{ results.VT_Suspicious }}
+
+{% else %}
+
+0
+
+{% endif %}
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>✅ Harmless</h3>
+
+<p>
+
+{% if results %}
+
+{{ results.VT_Harmless }}
+
+{% else %}
+
+0
+
+{% endif %}
+
+</p>
+
+</div>
+
+
+
+
+        <!-- Subject -->
+
+        <div class="card full-width">
+
+            <h3>📨 Subject</h3>
+
+            <p>
+
+            {% if results %}
+
+                {{ results.Subject }}
+
+            {% else %}
+
+                Waiting...
+
+            {% endif %}
+
+            </p>
+
+        </div>
+
+    
+<div class="card full-width">
+
+    <h3>🌐 URL Intelligence</h3>
+
+    <table class="url-table">
+
+        <tr>
+
+            <th>URL</th>
+
+            <th>Domain</th>
+ 
+            <th>Age</th>
+
+            <th>VirusTotal</th>           
+ 
+            <th>HTTPS</th>
+
+            <th>Risk</th>
+
+            <th>Status</th>
+
+        </tr>
+
+        {% if results and results.URL_Intelligence %}
+
+            {% for item in results.URL_Intelligence %}
+
+            <tr>
+
+               <td>{{ item.url }}</td>
+
+<td>{{ item.domain }}</td>
+
+<td>
+{% if "Days" in item.age %}
+    <span style="color:#ff4d4d;font-weight:bold;">
+        {{ item.age }}
+    </span>
+
+{% elif "Months" in item.age %}
+    <span style="color:#ffd43b;font-weight:bold;">
+        {{ item.age }}
+    </span>
+
+{% else %}
+    <span style="color:#66d9a3;font-weight:bold;">
+        {{ item.age }}
+    </span>
+
+{% endif %}
+</td>
+
+<td>{{ item.vt }}</td>
+
+<td>
+{% if item.https == "Yes" %}
+✅
+{% else %}
+❌
+{% endif %}
+</td>
+
+<td>{{ item.risk }}</td>
+
+<td>
+{% if item.status == "Safe" %}
+🟢 Safe
+{% elif item.status == "Shortened" %}
+🟡 Shortened
+{% else %}
+🔴 Suspicious
+{% endif %}
+</td>
+
+            </tr>
+
+            {% endfor %}
+
+        {% else %}
+
+            <tr>
+
+                <td colspan="5">
+
+                    No URLs Detected
+
+                </td>
+
+            </tr>
+
+        {% endif %}
+
+    </table>
+
+</div>
+
+<div class="card full-width">
+
+    <h3>📋 Indicators of Compromise (IOCs)</h3>
+
+    <table class="ioc-table">
+
+        <thead>
+
+            <tr>
+                <th>Type</th>
+                <th>Indicator</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for ioc in results.IOCs %}
+
+            <tr>
+
+                <td>{{ ioc.type }}</td>
+
+                <td>{{ ioc.value }}</td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<div class="card full-width">
+
+    <h3>🎯 MITRE ATT&CK Mapping</h3>
+
+    {% if results %}
+
+   <table class="mitre-table">
+
+    <thead>
+
+        <tr>
+            <th>Technique ID</th>
+            <th>Technique</th>
+            <th>Tactic</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for attack in results.MITRE %}
+
+        <tr>
+            <td>{{ attack.id }}</td>
+            <td>{{ attack.technique }}</td>
+            <td>{{ attack.tactic }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+    {% endif %}
+
+</div>
+
+       <!-- Recommendation -->
+
+<div class="card full-width">
+
+    <h3>⚠ Recommended Actions</h3>
+
+    {% if results %}
+
+        <h2>
+            Threat Level:
+
+            {% if results.Risk == "High" %}
+                <span style="color:#ff4d4d;">🔴 HIGH</span>
+
+            {% elif results.Risk == "Medium" %}
+                <span style="color:#ffb347;">🟡 MEDIUM</span>
+
+            {% else %}
+                <span style="color:#4caf50;">🟢 LOW</span>
+
+            {% endif %}
+        </h2>
+
+        <ul style="margin-top:15px; line-height:2;">
+
+        {% for rec in results.Recommendation %}
+
+            <li>{{ rec }}</li>
+
+        {% endfor %}
+
+        </ul>
+
+    {% else %}
+
+        <p>Upload an email to begin analysis.</p>
+
+    {% endif %}
+
+</div>
+<section class="recommendation">
+
+    <h2>🤖 AI Security Analyst</h2>
+
+    <pre class="ai-report">
+
+{% if results %}
+
+{{ results.AI_Report }}
+
+{% else %}
+
+Upload an email to generate an AI security assessment.
+
+{% endif %}
+
+    </pre>
+
+</section>
+
+    </section>
+<br><br>
+
+<div class="action-buttons">
+
+    <a href="/download" class="analyze-btn">
+        📄 Download PDF Report
+    </a>
+
+    <a href="/history" class="analyze-btn">
+        📜 View Analysis History
+    </a>
+<a href="/download_ioc_csv" class="analyze-btn">
+    📄 Download IOC CSV
+</a>
+
+<a href="/download_ioc_json" class="analyze-btn">
+    📦 Download IOC JSON
+</a>
+
+</div>
+
+</main>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

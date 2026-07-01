@@ -1,0 +1,21 @@
+From: support@paypal.com
+Subject: Urgent - Verify Your Account
+
+Hello,
+
+Your account has been suspended.
+
+Click here immediately:
+
+https://paypal-login-check.com/login
+
+Backup link:
+
+https://bit.ly/3ABCDEF
+
+Official website:
+
+https://www.paypal.com
+
+Regards,
+PayPal Security Team
