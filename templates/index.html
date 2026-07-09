@@ -432,12 +432,43 @@ Waiting...
 
 
 <div class="card">
-    <h4>Malicious</h4>
-    <p>{{ results.VT_Malicious }}</p>
+
+<h3>☠ Malicious</h3>
+
+<p>
+
+{% if results %}
+
+{{ results.VT_Malicious }}
+
+{% else %}
+
+0
+
+{% endif %}
+
+</p>
+
 </div>
+
 <div class="card">
-    <h4>Suspicious</h4>
-    <p>{{ results.VT_Suspicious }}</p>
+
+<h3>⚠ Suspicious</h3>
+
+<p>
+
+{% if results %}
+
+{{ results.VT_Suspicious }}
+
+{% else %}
+
+0
+
+{% endif %}
+
+</p>
+
 </div>
 
         
