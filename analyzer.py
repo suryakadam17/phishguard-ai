@@ -602,26 +602,33 @@ def parse_email_header(header):
         # ------------------------------------
         # Overall VirusTotal Summary
         # ------------------------------------
-
         malicious_links = 0
         suspicious_links = 0
+        harmless_links = 0 # Track this too
 
         for item in results["URL_Intelligence"]:
+            # Parse the 'vt' string (e.g., "🔴 2 Malicious")
+            vt_str = item["vt"]
+    
+            # Extract the numbers using regex or string splitting
+            # Since you store them as "🔴 X Malicious", you can check the logic:
+            if "Malicious" in vt_str:
+                # Extract the number from the string "🔴 2 Malicious"
+                count = int(re.search(r'\d+', vt_str).group())
+                malicious_links += count
+            elif "Suspicious" in vt_str:
+                count = int(re.search(r'\d+', vt_str).group())
+                suspicious_links += count
 
-            vt = item["vt"]
+        # UPDATE THE MAIN RESULTS DICTIONARY
+        results["VT_Malicious"] = malicious_links
+        results["VT_Suspicious"] = suspicious_links
 
-            if "Malicious" in vt:
-                malicious_links += 1
-
-            elif "Suspicious" in vt:
-                suspicious_links += 1
-
+        # Create the summary string for the UI
         if malicious_links > 0:
             results["VT_Summary"] = f"🔴 {malicious_links} Malicious URL(s)"
-
         elif suspicious_links > 0:
             results["VT_Summary"] = f"🟡 {suspicious_links} Suspicious URL(s)"
-
         else:
             results["VT_Summary"] = "🟢 Clean"
 
